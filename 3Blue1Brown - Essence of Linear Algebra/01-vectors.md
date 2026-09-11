@@ -1,7 +1,13 @@
-# Vectors: What Even Are They?
-## Essence of Linear Algebra — Chapter 1
+[🏠 **Repository Home**](../README.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 02 — Linear Combinations, Span & Basis** ⏭️](02-linear-combinations-span.md)
 
-> **In simple words:** Linear algebra is the mathematics of space and movement. A vector is its fundamental building block. Rather than arguing about whether a vector is an arrow or a list of numbers, the true power of linear algebra lies in **translating back and forth** between these two viewpoints. It lets you visualize complex data tables geometrically, and let computers crunch spatial operations numerically.
+---
+
+# Chapter 01: Vectors — What Even Are They?
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> Linear algebra is the mathematics of space and movement. A vector is its fundamental building block. Rather than arguing about whether a vector is an arrow or a list of numbers, the true power of linear algebra lies in **translating back and forth** between these two viewpoints. It lets you visualize complex data tables geometrically, and let computers crunch spatial operations numerically.
 
 ---
 
@@ -124,3 +130,7 @@ Scaled by -1.5 (-1.5v): [Reversing & Stretching]
 <summary><b>Reveal Answer</b></summary>
 The negative sign flips the direction of the vector by $180^\circ$ (reverses it), and the magnitude $0.5$ squishes its length to exactly half of the original size.
 </details>
+
+---
+
+[🏠 **Repository Home**](../README.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 02 — Linear Combinations, Span & Basis** ⏭️](02-linear-combinations-span.md)

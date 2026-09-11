@@ -1,7 +1,13 @@
-# Linear Transformations and Matrices
-## Essence of Linear Algebra — Chapter 3
+[⏮️ **Previous: Chapter 02 — Linear Combinations, Span & Basis**](02-linear-combinations-span.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 04 — Matrix Multiplication as Composition** ⏭️](04-matrix-multiplication-composition.md)
 
-> **In simple words:** A matrix is not just a static grid of numbers; it is a **machine that transforms space**. It takes a vector as an input and spits out a new vector as an output. To understand what any matrix does to the entire infinite 2D plane, you only need to track what it does to two single vectors: the standard basis vectors $\hat{\imath}$ and $\hat{\jmath}$. Wherever they land, everything else follows.
+---
+
+# Chapter 03: Linear Transformations and Matrices
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> A matrix is not just a static grid of numbers; it is a **machine that transforms space**. It takes a vector as an input and spits out a new vector as an output. To understand what any matrix does to the entire infinite 2D plane, you only need to track what it does to two single vectors: the standard basis vectors $\hat{\imath}$ and $\hat{\jmath}$. Wherever they land, everything else follows.
 
 ---
 
@@ -169,3 +175,7 @@ $$ \begin{bmatrix} 2 & 3 \\ -1 & 5 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bma
 
 * **Result:** The vector lands on $\begin{bmatrix} 16 \\ 18 \end{bmatrix}$.
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 02 — Linear Combinations, Span & Basis**](02-linear-combinations-span.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 04 — Matrix Multiplication as Composition** ⏭️](04-matrix-multiplication-composition.md)

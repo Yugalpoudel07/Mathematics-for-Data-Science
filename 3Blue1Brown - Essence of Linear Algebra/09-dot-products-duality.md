@@ -1,7 +1,13 @@
-# Dot Products and Duality
-## Essence of Linear Algebra — Chapter 9
+[⏮️ **Previous: Chapter 08 — Nonsquare Matrices & Dimensionality**](08-nonsquare-matrices-dimension-transformations.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 10 — Cross Products** ⏭️](10-cross-products.md)
 
-> **In simple words:** On the surface, the dot product seems like a routine arithmetic trick—matching up elements, multiplying them, and adding them together. But geometrically, it represents **projection**: sliding one vector onto another and multiplying their lengths. The deep mystery is why these two completely different processes yield the identical result. The answer lies in **Duality**: a 2D vector is secretly a 1D linear transformation in disguise.
+---
+
+# Chapter 09: Dot Products and Duality
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> On the surface, the dot product seems like a routine arithmetic trick—matching up elements, multiplying them, and adding them together. But geometrically, it represents **projection**: sliding one vector onto another and multiplying their lengths. The deep mystery is why these two completely different processes yield the identical result. The answer lies in **Duality**: a 2D vector is secretly a 1D linear transformation in disguise.
 
 ---
 
@@ -186,3 +192,7 @@ The unique dual vector $\vec{\mathbf{v}}$ is simply this matrix tilted verticall
 $$ \vec{\mathbf{v}} = \begin{bmatrix} -2 \\\\ 5 \end{bmatrix} $$
 Applying $L$ to any vector is computationally identical to taking the dot product with $\vec{\mathbf{v}}$.
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 08 — Nonsquare Matrices & Dimensionality**](08-nonsquare-matrices-dimension-transformations.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 10 — Cross Products** ⏭️](10-cross-products.md)

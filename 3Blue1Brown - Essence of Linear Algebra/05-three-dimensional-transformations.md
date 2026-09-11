@@ -1,7 +1,13 @@
-# Three-Dimensional Linear Transformations
-## Essence of Linear Algebra — Chapter 5
+[⏮️ **Previous: Chapter 04 — Matrix Multiplication as Composition**](04-matrix-multiplication-composition.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 06 — The Determinant: Scaling Space** ⏭️](06-determinant.md)
 
-> **In simple words:** Extending linear algebra from 2D to 3D is incredibly simple because the rules do not change. A 3D linear transformation is still a machine that takes in a vector and spits out a new one while keeping the origin fixed and all grid lines parallel and evenly spaced. Instead of tracking two basis vectors ($\hat{\imath}$ and $\hat{\jmath}$), we now track three ($\hat{\imath}$, $\hat{\jmath}$, and $\hat{k}$). Their landing spots become the columns of a $3 \times 3$ matrix, which acts as a complete visual description of how the transformation bends, rotates, or stretches 3D space.
+---
+
+# Chapter 05: Three-Dimensional Linear Transformations
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> Extending linear algebra from 2D to 3D is incredibly simple because the rules do not change. A 3D linear transformation is still a machine that takes in a vector and spits out a new one while keeping the origin fixed and all grid lines parallel and evenly spaced. Instead of tracking two basis vectors ($\hat{\imath}$ and $\hat{\jmath}$), we now track three ($\hat{\imath}$, $\hat{\jmath}$, and $\hat{k}$). Their landing spots become the columns of a $3 \times 3$ matrix, which acts as a complete visual description of how the transformation bends, rotates, or stretches 3D space.
 
 ---
 
@@ -167,3 +173,7 @@ To find where $\hat{\imath} = \begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}$ lands u
 $$ M \hat{\imath} = 1 \cdot \vec{\mathbf{c}}_1 + 0 \cdot \vec{\mathbf{c}}_2 + 0 \cdot \vec{\mathbf{c}}_3 = \vec{\mathbf{c}}_1 $$
 Because the $y$ and $z$ coordinates are $0$, they completely cancel out any influence from the second and third columns. Thus, the output is exactly the first column $\vec{\mathbf{c}}_1$. This proves that the first column is literally the destination of $\hat{\imath}$.
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 04 — Matrix Multiplication as Composition**](04-matrix-multiplication-composition.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 06 — The Determinant: Scaling Space** ⏭️](06-determinant.md)

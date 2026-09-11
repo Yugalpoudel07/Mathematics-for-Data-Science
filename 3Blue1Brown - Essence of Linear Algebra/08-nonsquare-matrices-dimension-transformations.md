@@ -1,7 +1,13 @@
-# Nonsquare Matrices as Transformations Between Dimensions
-## Essence of Linear Algebra — Chapter 8
+[⏮️ **Previous: Chapter 07 — Inverse Matrices, Column & Null Space**](07-inverse-matrices-column-null-space.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 09 — Dot Products & Duality** ⏭️](09-dot-products-duality.md)
 
-> **In simple words:** A matrix does not have to be square. If you see a nonsquare matrix (like a $3 \times 2$ or $2 \times 3$ matrix), it just means you are transforming space between **different dimensions**. It is a machine that takes in vectors of one size (e.g., 2D) and spits out vectors of a completely different size (e.g., 3D). The number of **columns** tells you how many dimensions you start with, and the number of **rows** tells you how many dimensions you end up with.
+---
+
+# Chapter 08: Nonsquare Matrices as Transformations Between Dimensions
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> A matrix does not have to be square. If you see a nonsquare matrix (like a $3 \times 2$ or $2 \times 3$ matrix), it just means you are transforming space between **different dimensions**. It is a machine that takes in vectors of one size (e.g., 2D) and spits out vectors of a completely different size (e.g., 3D). The number of **columns** tells you how many dimensions you start with, and the number of **rows** tells you how many dimensions you end up with.
 
 ---
 
@@ -131,3 +137,7 @@ Let's calculate each component:
 
 *   **Result:** The vector lands at $\begin{bmatrix} 9 \\ 1 \end{bmatrix}$ in 2D space.
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 07 — Inverse Matrices, Column & Null Space**](07-inverse-matrices-column-null-space.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 09 — Dot Products & Duality** ⏭️](09-dot-products-duality.md)

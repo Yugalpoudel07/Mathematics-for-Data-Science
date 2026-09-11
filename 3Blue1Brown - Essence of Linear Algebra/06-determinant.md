@@ -1,7 +1,13 @@
-# The Determinant: Scaling Space
-## Essence of Linear Algebra — Chapter 6
+[⏮️ **Previous: Chapter 05 — 3D Linear Transformations**](05-three-dimensional-transformations.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 07 — Inverse Matrices, Column & Null Space** ⏭️](07-inverse-matrices-column-null-space.md)
 
-> **In simple words:** A linear transformation squishes, rotates, and stretches space. The **determinant** is a single number that tells you exactly **how much space is scaled (stretched or squished) by that transformation**. It measures the change in area for 2D, volume for 3D, and hyper-volume for higher dimensions. If a transformation flips space upside down (like a mirror image), the determinant becomes negative. If a transformation squishes space into a flat line or point, the determinant is exactly zero.
+---
+
+# Chapter 06: The Determinant: Scaling Space
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> A linear transformation squishes, rotates, and stretches space. The **determinant** is a single number that tells you exactly **how much space is scaled (stretched or squished) by that transformation**. It measures the change in area for 2D, volume for 3D, and hyper-volume for higher dimensions. If a transformation flips space upside down (like a mirror image), the determinant becomes negative. If a transformation squishes space into a flat line or point, the determinant is exactly zero.
 
 ---
 
@@ -195,3 +201,7 @@ If you try to prove this algebraically, it becomes a nightmare of variables. But
 <summary><b>Reveal Answer</b></summary>
 Areas are scaled (stretched) by a factor of **$3.5$** (the absolute value of $-3.5$). The negative sign indicates that the orientation of space has been **flipped** (inverted).
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 05 — 3D Linear Transformations**](05-three-dimensional-transformations.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 07 — Inverse Matrices, Column & Null Space** ⏭️](07-inverse-matrices-column-null-space.md)

@@ -1,7 +1,13 @@
-# Linear Combinations, Span, and Basis Vectors
-## Essence of Linear Algebra — Chapter 2
+[⏮️ **Previous: Chapter 01 — Vectors: What Even Are They?**](01-vectors.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 03 — Linear Transformations & Matrices** ⏭️](03-linear-transformations-matrices.md)
 
-> **In simple words:** When you look at coordinates like $\begin{bmatrix} 3 \\ -2 \end{bmatrix}$, you are actually scaling two fundamental unit arrows—one pointing right ($\hat{\imath}$) and one pointing up ($\hat{\jmath}$)—and adding them together. This simple action of scaling and adding is called a **linear combination**. The **span** is the entire region of space you can reach by playing with these scalars. By understanding these concepts, we can define a **basis** of any space as the minimum set of non-redundant vectors needed to map it out completely.
+---
+
+# Chapter 02: Linear Combinations, Span, and Basis Vectors
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> When you look at coordinates like $\begin{bmatrix} 3 \\ -2 \end{bmatrix}$, you are actually scaling two fundamental unit arrows—one pointing right ($\hat{\imath}$) and one pointing up ($\hat{\jmath}$)—and adding them together. This simple action of scaling and adding is called a **linear combination**. The **span** is the entire region of space you can reach by playing with these scalars. By understanding these concepts, we can define a **basis** of any space as the minimum set of non-redundant vectors needed to map it out completely.
 
 ---
 
@@ -159,3 +165,7 @@ $$ b = 2(2) - 7 = 4 - 7 = -3 $$
 
 * **Result:** $a = 2$, $b = -3$.
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 01 — Vectors: What Even Are They?**](01-vectors.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 03 — Linear Transformations & Matrices** ⏭️](03-linear-transformations-matrices.md)

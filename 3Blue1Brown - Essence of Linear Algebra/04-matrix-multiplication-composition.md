@@ -1,7 +1,13 @@
-# Matrix Multiplication as Composition
-## Essence of Linear Algebra — Chapter 4
+[⏮️ **Previous: Chapter 03 — Linear Transformations & Matrices**](03-linear-transformations-matrices.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 05 — 3D Linear Transformations** ⏭️](05-three-dimensional-transformations.md)
 
-> **In simple words:** Matrix multiplication is usually taught in high school as a confusing ritual of shuffling numbers around (dotting rows of the first with columns of the second). In linear algebra, **multiplying two matrices means chaining (composing) two spatial transformations together.** You apply the first transformation, then the second. The resulting "product matrix" is just a single machine that does the work of both in one single step.
+---
+
+# Chapter 04: Matrix Multiplication as Composition
+**Essence of Linear Algebra — 3Blue1Brown**
+
+> [!TIP]
+> **Core Intuition:**  
+> Matrix multiplication is usually taught in high school as a confusing ritual of shuffling numbers around (dotting rows of the first with columns of the second). In linear algebra, **multiplying two matrices means chaining (composing) two spatial transformations together.** You apply the first transformation, then the second. The resulting "product matrix" is just a single machine that does the work of both in one single step.
 
 ---
 
@@ -160,3 +166,7 @@ We compute $M_2 M_1$:
 * **Resulting Product Matrix:**
   $$ M_2 M_1 = \begin{bmatrix} 2 & 0 \\ 1 & -2 \end{bmatrix} $$
 </details>
+
+---
+
+[⏮️ **Previous: Chapter 03 — Linear Transformations & Matrices**](03-linear-transformations-matrices.md) &nbsp;•&nbsp; [📚 **Essence of Linear Algebra Index**](README.md) &nbsp;•&nbsp; [**Next: Chapter 05 — 3D Linear Transformations** ⏭️](05-three-dimensional-transformations.md)
