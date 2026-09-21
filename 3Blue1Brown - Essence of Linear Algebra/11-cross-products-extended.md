@@ -3,6 +3,7 @@
 ---
 
 # Chapter 11: Cross Products in the Light of Linear Transformations
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -20,6 +21,7 @@ $$ \vec{\mathbf{v}} \times \vec{\mathbf{w}} = \det\left(\begin{bmatrix} \hat{\im
 Normally, students are told: *"Just pretend $\hat{\imath}, \hat{\jmath}, \hat{k}$ are numbers, expand the determinant, and accept that the resulting vector is perpendicular to $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$, has length equal to the area of their parallelogram, and obeys the right-hand rule."*
 
 To understand **why** this works without brute-force algebra, we bridge two previous concepts:
+
 1. **Determinants as Volume (Chapter 6):** A $3 \times 3$ matrix determinant measures the signed volume of a 3D parallelepiped.
 2. **Duality (Chapter 9):** Every linear transformation from 3D space to the 1D number line ($3\text{D} \to 1\text{D}$) corresponds to a unique 3D **dual vector** $\vec{\mathbf{p}}$, such that applying the transformation to any vector $\vec{\mathbf{u}}$ is identical to taking the dot product $\vec{\mathbf{p}} \cdot \vec{\mathbf{u}}$.
 
@@ -39,7 +41,7 @@ $$ T(\vec{\mathbf{u}}) = \det\left(\begin{bmatrix} x & v_1 & w_1 \\ y & v_2 & w_
                    /   / | (perpendicular height)
                   +---/--+
                  /   /  /
-                /   .  / 
+                /   .  /
                +------+  <- Base area spanned by v and w
 ```
 
@@ -77,6 +79,7 @@ Plugging $\hat{\imath}, \hat{\jmath}, \hat{k}$ into the first column of the matr
 Now, let's ask the exact same question geometrically: **What 3D vector $\vec{\mathbf{p}}$ satisfies $\vec{\mathbf{p}} \cdot \vec{\mathbf{u}} = \text{Volume}(\vec{\mathbf{u}}, \vec{\mathbf{v}}, \vec{\mathbf{w}})$ for all $\vec{\mathbf{u}}$?**
 
 Recall two geometric formulas:
+
 1. **Volume of a Parallelepiped:**
    $$ \text{Volume} = (\text{Base Area spanned by } \vec{\mathbf{v}} \text{ and } \vec{\mathbf{w}}) \times (\text{Perpendicular height of } \vec{\mathbf{u}}) $$
 
@@ -86,7 +89,7 @@ Recall two geometric formulas:
 ```text
                   p (Dual Vector / Cross Product)
                   ^
-                  |  
+                  |
                   |  u_perp (height)
                   | /
      -------------+------------ <- Plane spanned by v and w

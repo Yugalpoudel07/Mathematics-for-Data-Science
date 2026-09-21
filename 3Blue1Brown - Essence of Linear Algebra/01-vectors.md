@@ -3,6 +3,7 @@
 ---
 
 # Chapter 01: Vectors — What Even Are They?
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,6 +13,7 @@
 ---
 
 ### 1. Three Perspectives of a Vector
+
 Depending on your background, a vector means different things. Linear algebra bridges all three:
 
 | Perspective | Core Definition | Visual Representation | Use Case |
@@ -23,6 +25,7 @@ Depending on your background, a vector means different things. Linear algebra br
 ---
 
 ### 2. The Coordinate System: The Bridge
+
 In linear algebra, we always **root our vectors at the origin $(0,0)$**. This ties the physics arrow directly to the computer science list of numbers.
 
 * **The Origin $(0,0)$:** The center of space and the tail of every vector.
@@ -31,18 +34,20 @@ In linear algebra, we always **root our vectors at the origin $(0,0)$**. This ti
   $$ \vec{\mathbf{v}} = \begin{bmatrix} x \\ y \end{bmatrix} $$
 
 ```text
-Visualizing Vector [3, -2]:
+Visualizing the vector [3, -2]:
+
         y
         ^
+      1 |
         |
-     0 -+---+---+---+---> x
-        |   1   2   3
-    -1 -|            
-        |            \ 
-    -2 -|-------------> (3, -2) [Tip of Vector]
-        |   \        /
-        |    \  v   /
-        v     v    v
+      0 +---+---+---+---> x
+        0   1   2   3
+     -1 |           :
+        |           :   Step 1: travel 3 units right
+     -2 |...........*   Step 2: travel 2 units down
+        |         (3, -2)
+
+  The tail is pinned at the origin (0, 0); the tip lands on (3, -2).
 ```
 
 * **In 2D:** $\begin{bmatrix} 3 \\ -2 \end{bmatrix}$ means: "Go $3$ units along the positive x-axis (right), then $2$ units parallel to the negative y-axis (down)."
@@ -51,25 +56,30 @@ Visualizing Vector [3, -2]:
 ---
 
 ### 3. The Two Fundamental Operations
+
 All of linear algebra is built upon two operations: **Vector Addition** and **Scalar Multiplication**.
 
 #### A. Vector Addition (Combining Movements)
+
 * **Geometric View (Tip-to-Tail):** Move the tail of the second vector to the tip of the first. The sum is the arrow drawn from the tail of the first to the tip of the second.
 * **Why this works:** If you take a step along vector $\vec{\mathbf{v}}$, then a step along vector $\vec{\mathbf{w}}$, the overall displacement is exactly the same as walking directly along their sum $\vec{\mathbf{v}} + \vec{\mathbf{w}}$.
 
 ```text
-        y
-        ^
-     2 -|       .(1,2) [Tip of v / Tail of w]
-        |      / \
-     1 -|     /   \  w = [3, -1]
-        |  v /     \
-        |   /       v
-     0 -+---+---+---+---> x
-        0   1   2   3   4 (4,1) [Tip of sum v+w]
-        |   \       /
-        |    \_____/
-        |   Sum = [4, 1]
+Tip-to-tail addition:   v = [1, 2],   w = [3, -1]
+
+                (1, 2)
+                  *
+                 / \___
+            v   /      \___   w
+               /            \___
+              *                  *  (4, 1)
+           (0, 0)
+              |                   |
+              +-------------------+
+                     v + w = [4, 1]
+
+  Taking a step along v and then a step along w leaves you
+  exactly where the single arrow v + w would have taken you.
 ```
 
 * **Numerical View (Component-wise):** You simply match up corresponding components and add them together.
@@ -80,6 +90,7 @@ All of linear algebra is built upon two operations: **Vector Addition** and **Sc
 ---
 
 #### B. Scalar Multiplication (Scaling Space)
+
 * **Geometric View (Scaling):** Multiplying a vector by a number stretches, squishes, or reverses its direction.
   * Multiplying by $2$: Doubles the length (stretches).
   * Multiplying by $1/3$: Squishes it to one-third of its length.
@@ -89,13 +100,13 @@ All of linear algebra is built upon two operations: **Vector Addition** and **Sc
 ```text
 Original Vector v:
   (0,0) --------> (x, y)
-  
+
 Scaled by 2 (2v): [Stretching]
   (0,0) ----------------------------> (2x, 2y)
-  
+
 Scaled by 1/3 ((1/3)v): [Squishing]
   (0,0) ---> (x/3, y/3)
-  
+
 Scaled by -1.5 (-1.5v): [Reversing & Stretching]
   (-1.5x, -1.5y) <------------------------ (0,0)
 ```
@@ -108,12 +119,14 @@ Scaled by -1.5 (-1.5v): [Reversing & Stretching]
 ---
 
 ### 4. Why This Translation is a Superpower
+
 1. **For Computer Graphics & Game Devs / Physicists:** You can start with a physical concept (like a camera angle or a physics force in 3D space), translate it into numbers, and write an algorithm for the computer to process it.
 2. **For Data Scientists & ML Engineers:** It lets you treat massive, non-visual datasets (like housing data, user preferences, or text embeddings) as geometric objects in a high-dimensional space. By understanding operations geometrically, we can find clusters, trends, and patterns that would be invisible in tables of numbers.
 
 ---
 
 ### 5. Check Your Understanding
+
 **Q1: If vector $\vec{\mathbf{a}} = \begin{bmatrix} 2 \\ 5 \end{bmatrix}$ and vector $\vec{\mathbf{b}} = \begin{bmatrix} -4 \\ 1 \end{bmatrix}$, what are the coordinates of $3\vec{\mathbf{a}} + \vec{\mathbf{b}}$?**
 <details>
 <summary><b>Reveal Answer & Step-by-Step Derivation</b></summary>

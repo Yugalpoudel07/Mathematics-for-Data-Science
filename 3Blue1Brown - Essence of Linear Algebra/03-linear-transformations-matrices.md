@@ -3,6 +3,7 @@
 ---
 
 # Chapter 03: Linear Transformations and Matrices
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,13 +13,17 @@
 ---
 
 ### 1. Transformations as Vector Functions
+
 A "transformation" is simply a fancy word for a **mathematical function**. While typical algebraic functions take a number and output a number, linear algebra deals with functions that:
+
 * Take a **vector** as an input.
 * Spit out a **transformed vector** as an output:
   $$ L(\vec{\mathbf{v}}) = \vec{\mathbf{w}} $$
 
 #### Why "Transformation" Instead of "Function"?
+
 We use "transformation" to suggest a visual, spatial intuition. Instead of plotting a graph (which is impossible for 2D vectors since a 2D input and 2D output would require 4 dimensions), we visualize the function using **movement**:
+
 1. We represent every vector as a **single point in space** (the coordinate at its tip).
 2. We watch every point on an infinite grid **migrate** from its starting spot to its ending spot.
 3. This turns a dry algebraic formula into a beautiful, continuous morphing of 2D space.
@@ -26,6 +31,7 @@ We use "transformation" to suggest a visual, spatial intuition. Instead of plott
 ---
 
 ### 2. What Makes a Transformation "Linear"?
+
 Not all morphings of space are linear. Visually and algebraically, a transformation $L$ is strictly **linear** if it satisfies the following rules:
 
 | Perspective | Rule | Visual Description |
@@ -41,6 +47,7 @@ If any line curves or the origin shifts, the transformation is **nonlinear**.
 ---
 
 ### 3. The Superpower of Basis Vectors
+
 How does a computer calculate where millions of grid points land during a transformation? Does it need an infinitely long formula? No!
 
 Because of the formal properties of linearity, **if you know where the two basic unit vectors $\hat{\imath}$ and $\hat{\jmath}$ land, you can calculate exactly where ANY arbitrary vector lands.**
@@ -49,6 +56,7 @@ Recall that any vector $\vec{\mathbf{v}} = \begin{bmatrix} x \\ y \end{bmatrix}$
 $$ \vec{\mathbf{v}} = x\hat{\imath} + y\hat{\jmath} $$
 
 If we apply a linear transformation $L$, the rules of linearity dictate:
+
 1. **Preserve addition:** $L(\vec{\mathbf{v}}) = L(x\hat{\imath} + y\hat{\jmath}) = L(x\hat{\imath}) + L(y\hat{\jmath})$
 2. **Preserve scaling:** $L(\vec{\mathbf{v}}) = xL(\hat{\imath}) + yL(\hat{\jmath})$
 
@@ -57,9 +65,11 @@ This means **the transformed vector $L(\vec{\mathbf{v}})$ is the exact same line
 ---
 
 ### 4. Defining Matrix-Vector Multiplication
+
 This spatial shortcut is exactly where the formula for matrices and matrix-vector multiplication comes from.
 
 Suppose we run a transformation and watch our basis vectors land on new coordinates:
+
 * $\hat{\imath}$ (originally $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$) lands at $\begin{bmatrix} a \\ c \end{bmatrix}$
 * $\hat{\jmath}$ (originally $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$) lands at $\begin{bmatrix} b \\ d \end{bmatrix}$
 
@@ -95,19 +105,25 @@ $$ \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} x \\ y \end{bmat
 ### 5. Classic Visual Examples
 
 #### A. 90-Degree Counterclockwise Rotation
+
 If we rotate the entire plane $90^\circ$ counterclockwise:
+
 * $\hat{\imath}$ rotates straight up, landing on $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$.
 * $\hat{\jmath}$ rotates left, landing on $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$.
 
 ```text
-         y                          y
-         ^ (j-hat)                  ^ (i-hat lands here)
-         |                          | /
-         |                          |/  L(i-hat) = [0, 1]
-    -----+-----> x     ====>   <----+-----+-----> x
-         |  \                       |     \ 
-         |   i-hat                  |      L(j-hat) = [-1, 0]
-                               (j-hat lands here)
+Before rotation                        After 90 deg counterclockwise
+
+        y                                      y
+        ^                                      ^
+        |  ^  j-hat = [0, 1]                   |  ^  L(i-hat) = [0, 1]
+        |  |                                   |  |
+  ------+--+------> i-hat = [1, 0]      <------+--+------>
+        |                                      |
+        |                          L(j-hat) = [-1, 0]
+
+  i-hat swings UP   onto [ 0, 1]  ->  first  column of the matrix
+  j-hat swings LEFT onto [-1, 0]  ->  second column of the matrix
 ```
 
 The resulting matrix is:
@@ -119,18 +135,24 @@ $$ \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \end{bma
 ---
 
 #### B. A Shear Transformation
+
 In a shear, we hold the $x$-axis fixed but slide the top of the grid to the right:
+
 * $\hat{\imath}$ remains completely unchanged: $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$.
 * $\hat{\jmath}$ tilts and slides over to $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$.
 
 ```text
-       y                                    y
-       ^ (j-hat)                            ^   (j-hat slides)
-       |                                    |  /  L(j-hat) = [1, 1]
-       |                                    | /
-  -----+-----> x       ====>           -----+-----> x
-       |  \                                 |  \ 
-       |   i-hat (fixed)                    |   L(i-hat) = [1, 0] (fixed)
+Before shear                           After shear
+
+        y                                      y
+        ^                                      ^     L(j-hat) = [1, 1]
+        |  ^  j-hat = [0, 1]                   |    /
+        |  |                                   |   /
+  ------+--+------> i-hat = [1, 0]      ------+--/------> L(i-hat) = [1, 0]
+        |                                      |
+        |                                      |
+
+  i-hat is pinned in place at [1, 0];  j-hat tilts right onto [1, 1].
 ```
 
 The resulting matrix is:
@@ -139,6 +161,7 @@ $$ \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} $$
 ---
 
 ### 6. Special Case: Linearly Dependent Columns
+
 If the columns of a $2 \times 2$ matrix are linearly dependent (i.e., one column is a scalar multiple of another), it means the landing spot of $\hat{\imath}$ and the landing spot of $\hat{\jmath}$ point along the exact same line.
 
 * **The Geometric Consequence:** Instead of maintaining a 2D plane, the entire 2D space gets **squished down onto a single 1D line** (the span of those two vectors).
@@ -166,6 +189,7 @@ If the columns of a $2 \times 2$ matrix are linearly dependent (i.e., one column
 
 We use matrix-vector multiplication as a linear combination of the columns scaled by the coordinates:
 $$ \begin{bmatrix} 2 & 3 \\ -1 & 5 \end{bmatrix} \begin{bmatrix} 2 \\ 4 \end{bmatrix} = 2 \begin{bmatrix} 2 \\ -1 \end{bmatrix} + 4 \begin{bmatrix} 3 \\ 5 \end{bmatrix} $$
+
 1. **Scale the first column:**
    $$ 2 \cdot \begin{bmatrix} 2 \\ -1 \end{bmatrix} = \begin{bmatrix} 4 \\ -2 \end{bmatrix} $$
 2. **Scale the second column:**

@@ -3,6 +3,7 @@
 ---
 
 # Chapter 02: Linear Combinations, Span, and Basis Vectors
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,9 +13,11 @@
 ---
 
 ### 1. The True Meaning of Coordinates: Basis Vectors
+
 Normally, coordinates are introduced as numerical instructions for plotting points. But in linear algebra, there is a much more powerful spatial intuition: **coordinates are scalars that stretch or squish fundamental arrows called basis vectors.**
 
 In the standard 2D Cartesian plane, there are two special unit vectors:
+
 * **$\hat{\imath}$ ("i-hat"):** The unit vector pointing to the right along the x-axis with a length of $1$. Coordinates: $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$.
 * **$\hat{\jmath}$ ("j-hat"):** The unit vector pointing straight up along the y-axis with a length of $1$. Coordinates: $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$.
 
@@ -37,9 +40,11 @@ These two vectors, $\hat{\imath}$ and $\hat{\jmath}$, are called the **basis** o
 ---
 
 ### 2. Choosing Different Basis Vectors
+
 What makes linear algebra beautiful is that the standard basis is not sacred. We are free to choose a different pair of vectors to serve as our basis, which creates an entirely new coordinate system.
 
 Imagine choosing two different vectors, $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$, that do not point in the same direction:
+
 * We can declare $\vec{\mathbf{v}}$ as our new "i-hat" and $\vec{\mathbf{w}}$ as our new "j-hat".
 * Every pair of numbers $\begin{bmatrix} a \\ b \end{bmatrix}$ now refers to a new vector built by scaling and adding: $a\vec{\mathbf{v}} + b\vec{\mathbf{w}}$.
 
@@ -58,11 +63,13 @@ Any coordinate system—and any numerical representation of vectors—depends en
 ---
 
 ### 3. Linear Combinations
+
 Any mathematical expression where you scale multiple vectors and add them together is called a **linear combination**:
 $$ a\vec{\mathbf{v}} + b\vec{\mathbf{w}} $$
 Where $a$ and $b$ are scalars that can range freely over all real numbers.
 
 #### Why is it called "Linear"?
+
 If you keep one scalar constant (e.g., $b = 0$) and let the other scalar $a$ range freely, the vector $a\vec{\mathbf{v}}$ sweeps out an **infinite straight line** passing through the origin. Combining these scaled vectors is essentially a geometric way of "combining lines" to cover space.
 
 For a pair of 2D vectors $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$, there are three geometric scenarios when you take all possible linear combinations:
@@ -76,27 +83,37 @@ For a pair of 2D vectors $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$, there are th
 ---
 
 ### 4. The Concept of "Span"
+
 > **Definition:** The **span** of a set of vectors is the set of all possible vectors that can be reached using linear combinations of those vectors.
 > 
 > *“What are all the possible places we can travel using only our allowed operations of vector addition and scalar multiplication?”*
 
 #### Visualizing Collections: Vectors as Points
+
 Thinking of vectors as arrows gets incredibly messy when you visualize hundreds of them at once. To clean this up, we represent collections of vectors by **plotting only their tips as points in space**, assuming their tails are all anchored at the origin.
 
 * **A Span of a single vector** $\vec{\mathbf{v}}$ is an infinite **line** of points.
 * **A Span of two non-colinear vectors** $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$ is an infinite **flat sheet** of points representing the entire 2D plane.
 
 ```text
-Vectors as Arrows:                        Vectors as Points:
-        ^                                        .      .
-       / \                                         .  .
-      /   \                                         (0,0)
-     +----->                                     .   .  .
+Vectors as arrows (cluttered)          Vectors as points (clean)
+
+          ^  ^  /                                .    .   .
+           \ | /                                   .  .  .
+            \|/                                  .   .    .
+        <----o---->                                .  o  .        o = origin
+            /|\                                  .    .   .
+           / | \                                   .  .  .
+          v  v  v                                .   .    .
+
+  Every arrow is anchored at the origin,    Plot only the tips. Now the span
+  so the picture gets crowded fast.         of a set is just a line or a sheet.
 ```
 
 ---
 
 ### 5. Span in 3D and Higher Dimensions
+
 The true power of this framework shines when we go to three dimensions:
 
 1. **Two Vectors in 3D:** If you take two vectors $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$ in 3D space that do not line up, their span is a **2D flat sheet (plane)** slicing through the origin.
@@ -107,6 +124,7 @@ The true power of this framework shines when we go to three dimensions:
 ---
 
 ### 6. Linear Independence vs. Dependence
+
 In high-dimensional datasets, we often have redundant vectors that do not add any new spatial directions.
 
 * **Linearly Dependent:** If you have a set of vectors and you can remove at least one without shrinking their overall span, they are linearly dependent. In other words, **at least one vector can be written as a linear combination of the others** (it is already in their span).
@@ -114,10 +132,12 @@ In high-dimensional datasets, we often have redundant vectors that do not add an
 * **Linearly Independent:** If each vector in your set adds a brand-new dimension to your span, they are linearly independent. No vector in the set can be built from a combination of the others.
 
 #### The Formal Definition of a Basis
+
 We can now state the rigorous mathematical definition of a basis:
 > **A Basis of a space is a set of linearly independent vectors that span that space.**
 
 This means a basis must satisfy two conditions:
+
 1. It must **span** the space (you can reach everything).
 2. It must be **linearly independent** (there are no redundant elements; it is the absolute minimum set of vectors required).
 

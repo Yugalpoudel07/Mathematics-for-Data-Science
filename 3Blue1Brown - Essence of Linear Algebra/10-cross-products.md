@@ -3,6 +3,7 @@
 ---
 
 # Chapter 10: Cross Products
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,18 +13,24 @@
 ---
 
 ### 1. The 2D Concept: Parallelogram Area & Orientation
+
 Before moving to 3D, it helps to understand the 2D version of the cross product, which measures the **oriented area** of the parallelogram spanned by two vectors $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$.
 
 ```text
-       y
-       ^         w = [2, 1]
-       |         .-------.
-   1 - |        /       /
-       |       /       /
-   0 - +-----+-------+---> x
-       0   -3  \     2
-                 \
-                  v = [-3, 1]
+Area of the parallelogram spanned by v = [-3, 1] and w = [2, 1]:
+
+            y
+            ^
+            |      *-----------------*
+        1 - |     /                 /
+            |    /   Area = |v x w| /
+            |   /                 /
+        0 - *--+--------+--------+-----> x
+           -3  |        0        2
+               v = [-3, 1]        w = [2, 1]
+
+  v x w = (-3)(1) - (1)(2) = -5,  so the area is 5 and the
+  negative sign means w sits clockwise from v.
 ```
 
 * **Magnitude (Area):** The length/area of the parallelogram formed by placing $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$ tail-to-tail and completing the quadrilateral.
@@ -34,6 +41,7 @@ Before moving to 3D, it helps to understand the 2D version of the cross product,
     $$ \vec{\mathbf{v}} \times \vec{\mathbf{w}} = -(\vec{\mathbf{w}} \times \vec{\mathbf{v}}) $$
 
 #### Computing 2D Cross Product via Determinant
+
 In 2D, the cross product is simply the determinant of the $2 \times 2$ matrix whose columns are $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$:
 
 $$ \vec{\mathbf{v}} \times \vec{\mathbf{w}} = \det\left(\begin{bmatrix} v_1 & w_1 \\ v_2 & w_2 \end{bmatrix}\right) = v_1 w_2 - v_2 w_1 $$
@@ -43,6 +51,7 @@ $$ \vec{\mathbf{v}} \times \vec{\mathbf{w}} = \det\left(\begin{bmatrix} v_1 & w_
 ---
 
 ### 2. Properties of the Cross Product
+
 1. **Perpendicularity Boost:** The cross product is **largest** when $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$ are perpendicular ($90^\circ$), because a rectangle maximizes area. If the vectors are parallel or point in the same line, the area (and thus the cross product) is **zero**.
 2. **Scaling:** Scaling either vector scales the cross product by the same factor:
    $$ (c \vec{\mathbf{v}}) \times \vec{\mathbf{w}} = c (\vec{\mathbf{v}} \times \vec{\mathbf{w}}) $$
@@ -50,19 +59,28 @@ $$ \vec{\mathbf{v}} \times \vec{\mathbf{w}} = \det\left(\begin{bmatrix} v_1 & w_
 ---
 
 ### 3. The True 3D Cross Product
+
 In 3D space, combining two 3D vectors via the cross product yields a **new 3D vector**:
 
 $$ \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \times \begin{bmatrix} w_1 \\ w_2 \\ w_3 \end{bmatrix} = \begin{bmatrix} p_1 \\ p_2 \\ p_3 \end{bmatrix} $$
 
 ```text
-         ^  v x w (Result Vector)
-         |  [Perpendicular to the plane,
-         |   Length = Area of Parallelogram]
-         |
-         |______ w
-        /      /
-       /______/
-      v
+The 3D cross product v x w:
+
+            ^  v x w
+            |   (perpendicular to the plane of v and w,
+            |    length = area of the parallelogram)
+            |
+            |
+            *----------------*
+           /                /
+          /    v, w plane  /
+         /                /
+        *----------------*
+
+  Direction is fixed by the right-hand rule:
+  point your index finger along v, middle finger along w,
+  and your thumb points along v x w.
 ```
 
 1. **Magnitude:** The length of $\vec{\mathbf{v}} \times \vec{\mathbf{w}}$ equals the **area** of the 3D parallelogram spanned by $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$:
@@ -76,6 +94,7 @@ $$ \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \times \begin{bmatrix} w_1 \\
 ---
 
 ### 4. Computing the 3D Cross Product
+
 To compute the 3D cross product, we use a symbolic $3 \times 3$ determinant where the first column contains the basis vectors $\hat{\imath}, \hat{\jmath}, \hat{k}$, and the second and third columns contain $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$:
 
 $$ \vec{\mathbf{v}} \times \vec{\mathbf{w}} = \det\left(\begin{bmatrix} \hat{\imath} & v_1 & w_1 \\ \hat{\jmath} & v_2 & w_2 \\ \hat{k} & v_3 & w_3 \end{bmatrix}\right) $$
@@ -99,6 +118,7 @@ $$ \begin{bmatrix} v_1 \\ v_2 \\ v_3 \end{bmatrix} \times \begin{bmatrix} w_1 \\
 <summary><b>Reveal Answer & Step-by-Step Derivation</b></summary>
 
 $$ \det\left(\begin{bmatrix} 1 & 4 \\ -2 & 3 \end{bmatrix}\right) = (1)(3) - (4)(-2) = 3 - (-8) = 11 $$
+
 * **Result:** $11$. Since it is positive, $\vec{\mathbf{w}}$ is a counterclockwise rotation away from $\vec{\mathbf{v}}$.
 </details>
 
@@ -107,6 +127,7 @@ $$ \det\left(\begin{bmatrix} 1 & 4 \\ -2 & 3 \end{bmatrix}\right) = (1)(3) - (4)
 <summary><b>Reveal Answer & Step-by-Step Derivation</b></summary>
 
 Using the component formula or right-hand rule:
+
 * $\vec{\mathbf{v}}$ points $2$ units along the $+x$ axis ($\hat{\imath}$).
 * $\vec{\mathbf{w}}$ points $3$ units along the $-y$ axis ($-\hat{\jmath}$).
 * Area of the rectangle $= 2 \times 3 = 6$.

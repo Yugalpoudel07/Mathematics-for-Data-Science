@@ -3,6 +3,7 @@
 ---
 
 # Chapter 13: Change of Basis
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,11 +13,13 @@
 ---
 
 ### 1. Two Languages, Same Space
+
 When we say a vector has coordinates $\begin{bmatrix} 3 \\ 2 \end{bmatrix}$, we are implicitly scaling our standard basis vectors $\hat{\imath} = \begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\hat{\jmath} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}$:
 
 $$ \vec{\mathbf{v}} = 3\hat{\imath} + 2\hat{\jmath} $$
 
 Now imagine a friend, **Jennifer**, who uses her own set of basis vectors $\vec{\mathbf{b}}_1$ and $\vec{\mathbf{b}}_2$:
+
 * From our perspective, her basis vectors are $\vec{\mathbf{b}}_1 = \begin{bmatrix} 2 \\ 1 \end{bmatrix}$ and $\vec{\mathbf{b}}_2 = \begin{bmatrix} -1 \\ 1 \end{bmatrix}$.
 * From **her** perspective, they are simply her unit vectors $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$.
 
@@ -45,6 +48,7 @@ Both of us are pointing to the exact same arrow in space, but using different nu
 ### 2. The Change of Basis Matrix ($P$)
 
 #### A. Translating Her Language to Ours
+
 To convert a vector from Jennifer's coordinates ($\vec{\mathbf{v}}_{\text{Jennifer}}$) to our coordinates ($\vec{\mathbf{v}}_{\text{Our}}$), place her basis vectors as the columns of a matrix $P$:
 
 $$ P = \begin{bmatrix} \vec{\mathbf{b}}_1 & \vec{\mathbf{b}}_2 \end{bmatrix} = \begin{bmatrix} 2 & -1 \\ 1 & 1 \end{bmatrix} $$
@@ -60,6 +64,7 @@ $$ \begin{bmatrix} 2 & -1 \\ 1 & 1 \end{bmatrix} \begin{bmatrix} -1 \\ 2 \end{bm
 ---
 
 #### B. Translating Our Language to Hers
+
 To convert a vector from our coordinates ($\vec{\mathbf{v}}_{\text{Our}}$) to Jennifer's coordinates ($\vec{\mathbf{v}}_{\text{Jennifer}}$), we reverse the process using the **inverse matrix** $P^{-1}$:
 
 $$ \vec{\mathbf{v}}_{\text{Jennifer}} = P^{-1} \cdot \vec{\mathbf{v}}_{\text{Our}} $$
@@ -99,6 +104,7 @@ Jennifer's Output Vector: P⁻¹ M P · v_Jennifer
 ```
 
 #### The "Mathematical Empathy" Formula:
+
 $$ M_{\text{Jennifer}} = P^{-1} M P $$
 
 * **$P$ (Translate in):** Converts Jennifer's vector into our language.

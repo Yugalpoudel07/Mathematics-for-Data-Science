@@ -3,6 +3,7 @@
 ---
 
 # Chapter 07: Inverse Matrices, Column Space, and Null Space
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,6 +13,7 @@
 ---
 
 ### 1. Linear Systems of Equations as Spatial Transformations
+
 Usually, we are introduced to systems of linear equations as algebraic grids of constants and variables:
 $$
 \begin{aligned}
@@ -26,22 +28,23 @@ $$
 $$
 
 Rather than thinking about variables intermingling, we can interpret this geometrically:
+
 * **The Matrix $A$** is a machine that morphs space.
 * **The Vector $\vec{\mathbf{x}}$** is some mystery input vector in our starting space.
 * **The Vector $\vec{\mathbf{v}}$** is a known target vector in the transformed space.
 * **The Equation $A\vec{\mathbf{x}} = \vec{\mathbf{v}}$** asks: *"Which vector $\vec{\mathbf{x}}$ lands on $\vec{\mathbf{v}}$ after we play the transformation $A$?"*
 
 ```text
-       Starting Space (x)                 Transformed Space (v)
-            y                                    y
-            ^                                    ^
-            |  ? [Mystery x]                     |       * [Target v]
-            | /                                  |      /
-            |/                                   |     / 
-     -------+-------> x                   -------+-------> x
-           /|   (Where did it                      /|
-          / |    come from?)                      / |
+       Starting space (input)                Transformed space (output)
+
+            y                                       y
+            ^                                       ^
+            |   ?  [mystery x]                      |       *  [target v]
+            |  /                                    |      /
+            | /                                     |     /
+     -------+-------> x        ==== A ====>  -------+-------> x
             |                                       |
+     (Which vector lands on v?)                     |
 ```
 
 The behavior of our solutions depends entirely on whether $A$ collapses space into a lower dimension (i.e., whether its determinant is zero).
@@ -49,6 +52,7 @@ The behavior of our solutions depends entirely on whether $A$ collapses space in
 ---
 
 ### 2. The Non-Zero Determinant Case: Inverse Matrices ($A^{-1}$)
+
 If the determinant of $A$ is **not zero** ($\det(A) \neq 0$), space does not collapse. Every unique point in our starting space lands on a unique point in our ending space. 
 
 In this case, there will always be **one and only one** vector $\vec{\mathbf{x}}$ that lands on our target $\vec{\mathbf{v}}$. We find it by **playing the transformation in reverse** (rewinding the tape):
@@ -62,10 +66,12 @@ Rewinding the Tape (A⁻¹):
 ```
 
 This reverse transformation is called the **Inverse of $A$**, denoted as $A^{-1}$.
+
 * If $A$ is a **$90^\circ$ counterclockwise rotation**, its inverse $A^{-1}$ is a **$90^\circ$ clockwise rotation**.
 * If $A$ is a **rightward shear** that moves $\hat{\jmath}$ one unit right, its inverse $A^{-1}$ is a **leftward shear** that moves $\hat{\jmath}$ one unit left.
 
 #### The Algebraic Definition of Inverse
+
 If you play a transformation ($A$) and then immediately play its inverse ($A^{-1}$), you end up exactly where you started. Algebraically, this means multiplying a matrix by its inverse yields the **Identity Matrix ($I$)**, representing the "do-nothing" transformation:
 $$ A^{-1}A = I = \begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} $$
 
@@ -82,25 +88,28 @@ Geometrically, this means we take our target vector $\vec{\mathbf{v}}$, apply th
 ---
 
 ### 3. The Zero Determinant Case: Irreversibility
+
 If the determinant of $A$ is **zero** ($\det(A) = 0$), the transformation squishes space into a lower dimension (such as a 2D plane collapsing onto a 1D line or a 3D space flattening into a 2D plane).
 
 In this case, **no inverse matrix $A^{-1}$ exists**. 
+
 * **The Reason:** You cannot "unsquish" a line to recreate a plane. A single point cannot be unmapped into a whole line of points, because mathematical functions can only map a single input to a single output. If you've lost an entire dimension of information, you cannot reconstruct it out of nothing.
 
 ```text
-Collapsing 2D Space to a 1D Line (det = 0):
-      y                                          y
-      ^                                          ^    [All of space squished]
-      |   /                                      |  /
-      |  /  (v₁, v₂, v₃)                         | /  L(v₁)
-      | /                                        |/   L(v₂) = L(v₃)
- -----+-----> x          ======== A =======> ----+-----> x
-     /|                                         /|
-    / |                                        / |
-   /  |                                       /  |
-   
-  You cannot "unsquish" L(v₂) back to its original unique vector because we 
-  no longer know if it started as v₂ or v₃. Information has been permanently lost.
+Collapsing 2D space onto a 1D line (det = 0):
+
+      y                                         y
+      ^                                         ^
+      |    * v1                                 |      /
+      |   * v2                     ==== A ====> |     /  L(v1)
+      |  * v3                                   |    o   L(v2) = L(v3)
+ -----+-----------> x                      -----+---/-----------> x
+      |                                         |  /
+      |                                         | /
+
+  v2 and v3 land on the SAME output vector. You cannot "unsquish"
+  that output back to a unique input, so no inverse function exists.
+  Information has been permanently lost.
 ```
 
 Even without an inverse, a solution to $A\vec{\mathbf{x}} = \vec{\mathbf{v}}$ can still exist. However, you have to be **lucky** enough for your target vector $\vec{\mathbf{v}}$ to land exactly on the line or plane where space was squished.
@@ -108,10 +117,13 @@ Even without an inverse, a solution to $A\vec{\mathbf{x}} = \vec{\mathbf{v}}$ ca
 ---
 
 ### 4. Column Space and Rank
+
 To describe these collapsed spaces with precision, we use the terms **Rank** and **Column Space**.
 
 #### A. Rank: The Number of Output Dimensions
+
 The **Rank** of a matrix is simply the **number of dimensions in the output of the transformation**:
+
 * **Rank 1:** Space is squished down onto a **1D line**.
 * **Rank 2:** Space is squished down onto a **2D plane**.
 * **Rank 3:** The output spans a full **3D volume**.
@@ -119,7 +131,9 @@ The **Rank** of a matrix is simply the **number of dimensions in the output of t
 When the rank of a matrix is as high as it can possibly be (equal to the number of columns), we say the matrix is **Full Rank**. This means no dimensions were lost during the transformation.
 
 #### B. Column Space: The Reachable Span
+
 The set of all possible output vectors we can reach after applying a transformation is called the **Column Space** of the matrix.
+
 * **Why "Column" Space?** The columns of a matrix tell us exactly where our basis vectors ($\hat{\imath}$, $\hat{\jmath}$, etc.) land after the transformation. Because every vector in space is a linear combination of these basis vectors, the set of all possible outputs is simply the **span of the columns** of the matrix.
 * **Rank Redefined:** A more formal definition of Rank is the **number of dimensions in the Column Space** of a matrix.
 
@@ -128,23 +142,25 @@ Therefore, a system $A\vec{\mathbf{x}} = \vec{\mathbf{v}}$ has a solution if and
 ---
 
 ### 5. Null Space (The Kernel)
+
 When a transformation collapses space onto a lower dimension, many non-zero vectors are flattened directly into the origin $(0,0)$. 
 
 The set of all vectors that land **exactly on the origin (the zero vector $\vec{\mathbf{0}}$)** after the transformation is called the **Null Space** or the **Kernel** of the matrix.
 
 ```text
-Visualizing Null Space:
-      y                                          y
-      ^   / [Null Space Line]                    ^   
-      |  /                                       |   
-      | /  v₁ (non-zero vector)                  | 
- -----+-----> x          ======== A =======> ----+-----> x
-     /|                                         /| \
-    / |  v₂ (non-zero vector)                  / |  A(v₁) = A(v₂) = (0,0)
-   /  |                                       /  |
-   
-   An entire line of non-zero vectors collapses down to a single point 
-   at the origin. This line of collapsed vectors is the Null Space.
+Visualizing the null space:
+
+      y                                         y
+      ^   /  [null space line]                  ^
+      |  *  v1                                  |
+      | *   v2                     ==== A ====> |
+ -----+-----------> x                      -----@-----------> x
+     /|                                         |
+    * |  v3                                     |  A(v1) = A(v2) = A(v3) = 0
+   /  |                                         |
+
+  An entire LINE of non-zero input vectors is crushed onto the single
+  point at the origin (@). That line is the null space (kernel) of A.
 ```
 
 * **In 2D:** If a transformation squishes 2D space onto a 1D line, there is a separate 1D line of vectors (the Null Space) that get flattened onto the origin.
@@ -153,6 +169,7 @@ Visualizing Null Space:
   * If space squishes onto a **1D line**, there is a **2D plane** of vectors that land on the origin.
 
 #### Null Space and Equations
+
 In terms of linear systems of equations, if we are trying to solve:
 $$ A\vec{\mathbf{x}} = \vec{\mathbf{0}} $$
 

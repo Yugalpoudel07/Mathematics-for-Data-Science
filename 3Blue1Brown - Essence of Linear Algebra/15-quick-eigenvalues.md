@@ -3,6 +3,7 @@
 ---
 
 # Chapter 15: A Quick Trick for Computing Eigenvalues
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -34,17 +35,20 @@ While this process is straightforward, it requires a lot of mechanical scratch w
 The quick trick relies on three elegant mathematical facts:
 
 #### Fact 1: The Mean of Eigenvalues is the Mean of the Diagonal (Trace)
+
 The **trace** of a matrix $\text{tr}(\mathbf{A})$ is the sum of its diagonal entries ($a + d$). The trace always equals the sum of the eigenvalues ($\lambda_1 + \lambda_2 = a + d$).
 Dividing by $2$ gives the **mean** $m$ of the two eigenvalues:
 
 $$ m = \frac{\lambda_1 + \lambda_2}{2} = \frac{a + d}{2} = \frac{1}{2} \text{tr}(\mathbf{A}) $$
 
 #### Fact 2: The Product of Eigenvalues is the Determinant
+
 The **determinant** of a $2 \times 2$ matrix $p = ad - bc$ always equals the product of its eigenvalues:
 
 $$ p = \lambda_1 \cdot \lambda_2 = \det(\mathbf{A}) $$
 
 #### Fact 3: The Mean-Product Formula (Difference of Squares)
+
 When two numbers $\lambda_1, \lambda_2$ have a known mean $m$ and product $p$, they are positioned symmetrically around $m$ on the number line at some distance $d$:
 
 $$ \lambda_1 = m + d, \quad \lambda_2 = m - d $$
@@ -88,6 +92,7 @@ Given any $2 \times 2$ matrix $\mathbf{A} = \begin{bmatrix} a & b \\ c & d \end{
 ### 4. Worked Examples
 
 #### Example A: Standard Matrix
+
 Find the eigenvalues of $\mathbf{A} = \begin{bmatrix} 3 & 1 \\ 4 & 1 \end{bmatrix}$.
 
 1. **Mean ($m$):** $\frac{3 + 1}{2} = 2$
@@ -98,6 +103,7 @@ Find the eigenvalues of $\mathbf{A} = \begin{bmatrix} 3 & 1 \\ 4 & 1 \end{bmatri
 ---
 
 #### Example B: Integer Eigenvalues
+
 Find the eigenvalues of $\mathbf{B} = \begin{bmatrix} 2 & 7 \\ 1 & 8 \end{bmatrix}$.
 
 1. **Mean ($m$):** $\frac{2 + 8}{2} = 5$
@@ -109,6 +115,7 @@ Find the eigenvalues of $\mathbf{B} = \begin{bmatrix} 2 & 7 \\ 1 & 8 \end{bmatri
 ---
 
 #### Example C: Quantum Mechanics Application (Pauli Spin Matrices)
+
 In physics, the **Pauli spin matrices** describe quantum particle spin:
 
 $$ \sigma_x = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \quad \sigma_y = \begin{bmatrix} 0 & -i \\ i & 0 \end{bmatrix}, \quad \sigma_z = \begin{bmatrix} 1 & 0 \\ 0 & -1 \end{bmatrix} $$
@@ -117,6 +124,7 @@ $$ \sigma_x = \begin{bmatrix} 0 & 1 \\ 1 & 0 \end{bmatrix}, \quad \sigma_y = \be
 * Using the shortcut: $\lambda_{1,2} = 0 \pm \sqrt{0^2 - (-1)} = \pm 1$.
 
 Furthermore, for a general normalized measurement direction $a\sigma_x + b\sigma_y + c\sigma_z$ (where $a^2 + b^2 + c^2 = 1$):
+
 * Matrix: $\begin{bmatrix} c & a - bi \\ a + bi & -c \end{bmatrix}$
 * **Mean ($m$):** $\frac{c + (-c)}{2} = 0$
 * **Product ($p$):** $-c^2 - (a - bi)(a + bi) = -c^2 - (a^2 + b^2) = -(a^2 + b^2 + c^2) = -1$

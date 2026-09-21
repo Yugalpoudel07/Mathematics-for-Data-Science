@@ -3,6 +3,7 @@
 ---
 
 # Chapter 04: Matrix Multiplication as Composition
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,7 +13,9 @@
 ---
 
 ### 1. The Core Intuition: Chaining Transformations
+
 Imagine you have two separate spatial operations you want to perform in order on a 2D grid:
+
 1. **First,** you rotate all of space by $90^\circ$ counterclockwise. Let's call this transformation $R$ (represented by matrix $M_1$).
 2. **Second,** you apply a horizontal shear. Let's call this transformation $S$ (represented by matrix $M_2$).
 
@@ -42,6 +45,7 @@ We can represent this entire multi-step process with a **single, new 2x2 matrix*
 ---
 
 ### 2. The Notation Quirk: Reading Right-to-Left
+
 In math notation, we write functions on the left of their inputs (like $f(x)$). When nesting functions—applying $g(x)$ first, then applying $f$ to the result—we write it as:
 $$ f(g(x)) $$
 
@@ -61,34 +65,41 @@ $$ M_2 \cdot M_1 \cdot \vec{\mathbf{v}} $$
 ---
 
 ### 3. Computing the Product Matrix (The Visual Way)
+
 Instead of memorizing algorithmic row-by-column calculations, we can find the product matrix by applying our golden rule from Chapter 3: **Track where the unit basis vectors $\hat{\imath}$ and $\hat{\jmath}$ ultimately land.**
 
 Let’s find the product of applying a **Rotation $90^\circ$ CCW** first, then a **Horizontal Shear**:
+
 * Rotation Matrix ($M_1$): $\begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}$
 * Shear Matrix ($M_2$): $\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}$
 
 #### Step 1: Follow $\hat{\imath}$
+
 1. **Transformation 1 (Rotation):** $\hat{\imath}$ starts at $\begin{bmatrix} 1 \\ 0 \end{bmatrix}$ and lands at $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ (this is the first column of $M_1$).
 2. **Transformation 2 (Shear):** Now, apply the shear matrix $M_2$ to that intermediate landing spot:
    $$ M_2 \cdot \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = 0\begin{bmatrix} 1 \\ 0 \end{bmatrix} + 1\begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} 1 \\ 1 \end{bmatrix} $$
 * Thus, the final landing spot of $\hat{\imath}$ is $\begin{bmatrix} 1 \\ 1 \end{bmatrix}$. This becomes the **first column** of our product matrix.
 
 #### Step 2: Follow $\hat{\jmath}$
+
 1. **Transformation 1 (Rotation):** $\hat{\jmath}$ starts at $\begin{bmatrix} 0 \\ 1 \end{bmatrix}$ and lands at $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$ (the second column of $M_1$).
 2. **Transformation 2 (Shear):** Apply the shear matrix $M_2$ to that intermediate spot:
    $$ M_2 \cdot \begin{bmatrix} -1 \\ 0 \end{bmatrix} = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} -1 \\ 0 \end{bmatrix} = -1\begin{bmatrix} 1 \\ 0 \end{bmatrix} + 0\begin{bmatrix} 1 \\ 1 \end{bmatrix} = \begin{bmatrix} -1 \\ 0 \end{bmatrix} $$
 * Thus, the final landing spot of $\hat{\jmath}$ is $\begin{bmatrix} -1 \\ 0 \end{bmatrix}$. This becomes the **second column** of our product matrix.
 
 #### The Result:
+
 $$ \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 1 & -1 \\ 1 & 0 \end{bmatrix} $$
 
 ---
 
 ### 4. General Algebraic Form
+
 If we generalize this process for any two matrices $M_2$ and $M_1$:
 $$ M_2 = \begin{bmatrix} a & b \\ c & d \end{bmatrix}, \quad M_1 = \begin{bmatrix} e & f \\ g & h \end{bmatrix} $$
 
 To compute $M_2 M_1$:
+
 1. **First Column:** Find where $\hat{\imath}$ lands by multiplying $M_2$ by the first column of $M_1$:
    $$ \begin{bmatrix} a & b \\ c & d \end{bmatrix} \begin{bmatrix} e \\ g \end{bmatrix} = \begin{bmatrix} ae + bg \\ ce + dg \end{bmatrix} $$
 2. **Second Column:** Find where $\hat{\jmath}$ lands by multiplying $M_2$ by the second column of $M_1$:
@@ -104,6 +115,7 @@ Rather than memorizing this grid of variables, think of each column of the produ
 ### 5. Critical Properties of Matrix Multiplication
 
 #### A. Noncommutativity (Order Matters!)
+
 In general arithmetic, $2 \cdot 3 = 3 \cdot 2$. However, in linear algebra, **matrix multiplication is noncommutative**:
 $$ AB \neq BA $$
 
@@ -117,6 +129,7 @@ $$ AB \neq BA $$
 ---
 
 #### B. Associativity (Parentheses Don't Matter)
+
 If you are multiplying three matrices $A(BC)$ vs $(AB)C$, **matrix multiplication is associative**:
 $$ A(BC) = (AB)C $$
 
@@ -135,6 +148,7 @@ $$ \text{Scaling Matrix } S = \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}, \qua
 <summary><b>Reveal Answer & Step-by-Step Derivation</b></summary>
 
 **1. Calculate $SR$ (Rotation first, then Scaling):**
+
 * **First Column ($\hat{\imath}$):** Apply $S$ to first column of $R$:
   $$ \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 2 \end{bmatrix} $$
 * **Second Column ($\hat{\jmath}$):** Apply $S$ to second column of $R$:
@@ -142,6 +156,7 @@ $$ \text{Scaling Matrix } S = \begin{bmatrix} 2 & 0 \\ 0 & 2 \end{bmatrix}, \qua
 * **Result $SR$:** $\begin{bmatrix} 0 & -2 \\ 2 & 0 \end{bmatrix}$
 
 **2. Calculate $RS$ (Scaling first, then Rotation):**
+
 * **First Column ($\hat{\imath}$):** Apply $R$ to first column of $S$:
   $$ \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 2 \\ 0 \end{bmatrix} = \begin{bmatrix} 0 \\ 2 \end{bmatrix} $$
 * **Second Column ($\hat{\jmath}$):** Apply $R$ to second column of $S$:
@@ -158,6 +173,7 @@ They agree perfectly ($SR = RS$). Since $S$ is a uniform scaling matrix, it acts
 <summary><b>Reveal Answer & Step-by-Step Derivation</b></summary>
 
 We compute $M_2 M_1$:
+
 * **First column of product:** Apply $M_2$ to the first column of $M_1$ ($\begin{bmatrix} 1 \\ 1 \end{bmatrix}$):
   $$ \begin{bmatrix} 0 & 2 \\ 1 & 0 \end{bmatrix} \begin{bmatrix} 1 \\ 1 \end{bmatrix} = 1\begin{bmatrix} 0 \\ 1 \end{bmatrix} + 1\begin{bmatrix} 2 \\ 0 \end{bmatrix} = \begin{bmatrix} 2 \\ 1 \end{bmatrix} $$
 * **Second column of product:** Apply $M_2$ to the second column of $M_1$ ($\begin{bmatrix} -2 \\ 0 \end{bmatrix}$):

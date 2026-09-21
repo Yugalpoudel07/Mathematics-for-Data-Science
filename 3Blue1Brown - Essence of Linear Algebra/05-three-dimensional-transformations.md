@@ -3,6 +3,7 @@
 ---
 
 # Chapter 05: Three-Dimensional Linear Transformations
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,9 +13,11 @@
 ---
 
 ### 1. The Leap to the Third Dimension
+
 In 2D space, we visualised linear transformations by watching how a flat coordinate grid warped. In 3D space, we do the exact same thing, but with a **three-dimensional coordinate grid**. 
 
 A transformation in 3D is **linear** if it satisfies the same spatial constraints:
+
 1. **The origin remains fixed** at $(0,0,0)$.
 2. **All grid lines must remain straight** (no bending or curving).
 3. **All grid lines must remain parallel and evenly spaced**.
@@ -28,10 +31,11 @@ Visualising 3D Space (Right-Hand Rule):
           | /
           +-------------> x (Red - points right)
          /
-        / 
+        /
        v
 ```
 Instead of visualising the entire infinite 3D grid moving (which becomes incredibly crowded and hard to track), we focus entirely on what happens to our three fundamental unit basis vectors:
+
 * **$\hat{\imath}$ (i-hat):** The unit vector pointing along the $+x$ axis $\begin{bmatrix} 1 \\ 0 \\ 0 \end{bmatrix}$.
 * **$\hat{\jmath}$ (j-hat):** The unit vector pointing along the $+y$ axis $\begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix}$.
 * **$\hat{k}$ (k-hat):** The unit vector pointing along the $+z$ axis $\begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix}$.
@@ -39,6 +43,7 @@ Instead of visualising the entire infinite 3D grid moving (which becomes incredi
 ---
 
 ### 2. The $3 \times 3$ Matrix: Nine Numbers that Define Space
+
 Just as a 2D transformation is completely determined by where the two basis vectors land, a **3D linear transformation is completely determined by where $\hat{\imath}$, $\hat{\jmath}$, and $\hat{k}$ land**.
 
 We bundle these three landing coordinates side-by-side to create a **$3 \times 3$ matrix**:
@@ -77,7 +82,9 @@ $$
 Let's practice translating 3D spatial movements into $3 \times 3$ matrices by tracking our basis vectors.
 
 #### A. 90-Degree Rotation around the $y$-axis
+
 Imagine space rotating 90 degrees around the vertical $y$-axis. Look down the $+y$ axis towards the $xz$-plane to establish direction:
+
 * **$\hat{\jmath}$ is on the axis of rotation**, so it does not move at all:
   $$ \hat{\jmath} \rightarrow \begin{bmatrix} 0 \\ 1 \\ 0 \end{bmatrix} $$
 * **$\hat{\imath}$ (pointing along $+x$)** rotates 90 degrees to point along the $-z$ direction:
@@ -92,20 +99,22 @@ $$ R_y(90^\circ) = \begin{bmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ -1 & 0 & 0 \end{bma
 Rotation around the y-axis:
          y (rotation axis stays fixed)
          ^
-         |      
+         |
   [-1] < - - - - - [1]  (z-axis rotates into x-axis)
-         |     / 
-         |    /  
+         |     /
+         |    /
   -------+---/---------> x
         /   /
        /   v
-      z 
+      z
 ```
 
 ---
 
 #### B. 90-Degree Counterclockwise Rotation around the $z$-axis
+
 Imagine looking down from the positive $z$-axis toward the $xy$-plane (like looking at a clock lying flat facing you):
+
 * **$\hat{k}$ is on the axis of rotation**, so it stays fixed:
   $$ \hat{k} \rightarrow \begin{bmatrix} 0 \\ 0 \\ 1 \end{bmatrix} $$
 * **$\hat{\imath}$ (pointing along $+x$)** rotates 90 degrees counterclockwise to point along the $+y$ direction:
@@ -119,6 +128,7 @@ $$ R_z(90^\circ) = \begin{bmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{bma
 ---
 
 ### 4. Composition of 3D Transformations
+
 Composing 3D transformations works exactly like composing 2D transformations: we multiply the matrices.
 
 $$ \text{Total Effect} = M_2 M_1 \vec{\mathbf{v}} $$
@@ -126,15 +136,18 @@ $$ \text{Total Effect} = M_2 M_1 \vec{\mathbf{v}} $$
 We read the operations **right-to-left**: first apply the transformation on the right ($M_1$), then apply the transformation on the left ($M_2$).
 
 Composition of $3 \times 3$ matrices is the absolute bedrock of **computer graphics, 3D game engines, and robotics**:
+
 * A robot arm needs to calculate its hand's position by composing rotations of its shoulder, elbow, and wrist joints.
 * A game engine describes a camera's view of a 3D world by composing a sequence of rotations (pitch, yaw, roll) and translations. Composing these into a single combined matrix allows the graphics hardware to transform millions of vertices in parallel.
 
 ---
 
 ### 5. Concept Teaser: Transformations Between Dimensions
+
 Can you have a transformation between different dimensions? For example, mapping a 2D input to a 3D output?
 
 Yes! If we have a transformation $T: \mathbb{R}^2 \rightarrow \mathbb{R}^3$:
+
 * Since the input is 2D, we only track **two** basis vectors ($\hat{\imath}$ and $\hat{\jmath}$).
 * Since the output is 3D, their landing spots are represented as 3D coordinates.
 * The columns of our matrix will be 3D vectors, meaning the matrix has **3 rows and 2 columns** (a $3 \times 2$ matrix).

@@ -3,6 +3,7 @@
 ---
 
 # Chapter 09: Dot Products and Duality
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -16,32 +17,41 @@
 Traditionally, the dot product is introduced as a standalone algebraic formula, but its true beauty is in its geometric interpretation.
 
 #### A. The Numerical View (Coordinate Matching)
+
 If you have two vectors of the same dimension, you pair up their corresponding coordinates, multiply those pairs, and add the products together.
 
-$$ \begin{bmatrix} v_x \\\\ v_y \end{bmatrix} \cdot \begin{bmatrix} w_x \\\\ w_y \end{bmatrix} = v_x w_x + v_y w_y $$
+$$ \begin{bmatrix} v_x \\ v_y \end{bmatrix} \cdot \begin{bmatrix} w_x \\ w_y \end{bmatrix} = v_x w_x + v_y w_y $$
 
 *Example:*
-$$ \begin{bmatrix} 1 \\\\ 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \\\\ 4 \end{bmatrix} = (1 \cdot 3) + (2 \cdot 4) = 3 + 8 = 11 $$
+$$ \begin{bmatrix} 1 \\ 2 \end{bmatrix} \cdot \begin{bmatrix} 3 \\ 4 \end{bmatrix} = (1 \cdot 3) + (2 \cdot 4) = 3 + 8 = 11 $$
 
 #### B. The Geometric View (Projection & Scaling)
+
 To find $\vec{\mathbf{v}} \cdot \vec{\mathbf{w}}$:
+
 1. Project $\vec{\mathbf{w}}$ perpendicularly onto the line defined by $\vec{\mathbf{v}}$.
 2. Measure the length of this projection (called $\text{proj}_{\vec{\mathbf{v}}}\vec{\mathbf{w}}$).
 3. Multiply the length of this projection by the length of $\vec{\mathbf{v}}$ itself.
 
 ```text
+Geometric dot product = (length of projection) x (length of v):
+
        y
-       ^         w
-       |        /|
-       |       / |
-       |      /  | 
-       |     /   | [Perpendicular Projection]
-       |    /    v
-       |   /---->-------> v
-       +---+----+---------> x
-       0  (Length of proj)
-           |____________|
-             Length of v
+       ^        * w
+       |       /|
+       |      / |
+       |     /  |  (drop w perpendicularly onto the line of v)
+       |    /   |
+       |   /    v
+       +--*-----+--------*-----> x
+       0        |        v
+                |
+       |<------>|
+        length of proj_v(w)
+       |<---------------->|
+            length of v
+
+  v . w  =  length(proj_v w)  x  length(v)
 ```
 
 * **The Sign Tells the Story:**
@@ -58,6 +68,7 @@ The geometric definition of the dot product is highly asymmetric—one vector is
 Why does projecting $\vec{\mathbf{w}}$ onto $\vec{\mathbf{v}}$ and multiplying by $\|\vec{\mathbf{v}}\|$ yield the same result as projecting $\vec{\mathbf{v}}$ onto $\vec{\mathbf{w}}$ and multiplying by $\|\vec{\mathbf{w}}\|$?
 
 #### The Symmetry Intuition:
+
 1. **If $\vec{\mathbf{v}}$ and $\vec{\mathbf{w}}$ have equal length:** The two processes are perfect mirror images of each other. The symmetry guarantees they are equal.
 2. **If we scale one of the vectors:** Imagine doubling the length of $\vec{\mathbf{v}}$ to $2\vec{\mathbf{v}}$:
    * **In the "project $\vec{\mathbf{w}}$ onto $\vec{\mathbf{v}}$" view:** The projection length of $\vec{\mathbf{w}}$ remains completely unchanged, but the length of the vector being projected onto ($\vec{\mathbf{v}}$) is doubled. Thus, the dot product doubles.
@@ -75,21 +86,22 @@ To solve the puzzle of why coordinate matching (numerical) matches projection (g
 
 ```text
 2D Input Space (Grid of Dots)         1D Output Space (Number Line)
-       *       *       *                       
+       *       *       *
        *       *       *              ---------*---*---*---------
        *       *       *                      -1   0   1
 [Dots on any line are evenly spaced]      [Mapped dots remain evenly spaced]
 ```
 
 As we learned in Chapter 3, any linear transformation is entirely determined by where the basis vectors $\hat{\imath}$ and $\hat{\jmath}$ land. Since the output space is 1-dimensional, $\hat{\imath}$ and $\hat{\jmath}$ must land on simple **numbers**, not vectors!
+
 * Let $\hat{\imath} \to a$
 * Let $\hat{\jmath} \to b$
 
 Thus, the transformation matrix is a **$1 \times 2$ matrix**: 
 $$ L = \begin{bmatrix} a & b \end{bmatrix} $$
 
-To transform any vector $\begin{bmatrix} x \\\\ y \end{bmatrix}$, we compute the matrix-vector multiplication:
-$$ \begin{bmatrix} a & b \end{bmatrix} \begin{bmatrix} x \\\\ y \end{bmatrix} = ax + by $$
+To transform any vector $\begin{bmatrix} x \\ y \end{bmatrix}$, we compute the matrix-vector multiplication:
+$$ \begin{bmatrix} a & b \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = ax + by $$
 
 *This is algebraically identical to the dot product of two vectors!*
 
@@ -100,52 +112,74 @@ $$ \begin{bmatrix} a & b \end{bmatrix} \begin{bmatrix} x \\\\ y \end{bmatrix} = 
 Now, let's tie these pieces together with a beautiful geometric proof.
 
 #### Step 1: Set Up a Diagonal Number Line
+
 Imagine taking a 1D number line and placing it diagonally in 2D space, passing through the origin. Let's define $\hat{\mathbf{u}}$ as the **unit vector** pointing along this diagonal line, with its tip resting at the number $1$.
 
 ```text
+A number line laid diagonally across 2D space:
+
        y
-       ^       / [Diagonal Number Line]
-       |     (1) <- Tip of u is at the number 1
-       |     / \
-       |    /   \  u (Unit Vector)
-       |   /     \
-       +--/-------+-----> x
-       0 /
-        /
+       ^            /  [diagonal number line]
+       |           /
+       |         (1)     <- the tip of u-hat sits on the number 1
+       |         /
+       |       u/  (unit vector along the line)
+       |       /
+       +------/-------------> x
+       0     /
+            /
+
+  Every point of the plane can be projected perpendicularly onto this line,
+  which turns a 2D vector into a single number.
 ```
 
 #### Step 2: Define the Projection Transformation
+
 Now, define a transformation $P: \mathbb{R}^2 \to \mathbb{R}$ that takes any 2D vector in the plane and projects it perpendicularly onto this diagonal number line.
+
 * This transformation is **linear** because it preserves parallel, evenly spaced grid structures.
 * Because it is linear, it must be describable by a $1 \times 2$ matrix: $\begin{bmatrix} a & b \end{bmatrix}$, where $a$ is where $\hat{\imath}$ lands on the diagonal, and $b$ is where $\hat{\jmath}$ lands.
 
 #### Step 3: Leverage the Symmetry of Unit Vectors
+
 To find where $\hat{\imath}$ lands on the diagonal line, project $\hat{\imath}$ perpendicularly onto the line of $\hat{\mathbf{u}}$.
+
 * Because $\hat{\imath}$ and $\hat{\mathbf{u}}$ are **both unit vectors**, the system is perfectly symmetric:
   $$\text{Projection of } \hat{\imath} \text{ onto } \hat{\mathbf{u}} = \text{Projection of } \hat{\mathbf{u}} \text{ onto the } x\text{-axis}$$
 * The projection of $\hat{\mathbf{u}}$ onto the $x$-axis is simply the $x$-coordinate of $\hat{\mathbf{u}}$ ($u_x$).
 * Therefore, $\hat{\imath}$ lands on the number **$u_x$** on the diagonal line!
 
 By the exact same symmetry argument:
+
 * $\hat{\jmath}$ projected onto $\hat{\mathbf{u}}$ lands on **$u_y$** (the $y$-coordinate of $\hat{\mathbf{u}}$).
 
 ```text
-Symmetry Demonstration:
-   Projecting i-hat onto u                  Projecting u onto x-axis
-          /  u                                         /  u
-         /|                                           / |
-   i-hat -+---> x                                    +--+----> x
-  (Lands on u_x)                                    (Lands on u_x)
+Symmetry of unit vectors:
+
+  Project i-hat onto u-hat            Project u-hat onto the x-axis
+
+            /  u-hat                            /  u-hat
+           /                                   /
+          /                                   /
+     ----*------> x                      ----+----*------> x
+       i-hat                                      |
+                                                  u_x
+
+  Both projections have the same length: u_x.
+  So i-hat lands on the number u_x, and by the same argument
+  j-hat lands on the number u_y.
 ```
 
 #### Step 4: The Core Revelation
+
 The $1 \times 2$ matrix describing this projection transformation is exactly:
 $$ P = \begin{bmatrix} u_x & u_y \end{bmatrix} $$
 
-To project any arbitrary vector $\vec{\mathbf{w}} = \begin{bmatrix} x \\\\ y \end{bmatrix}$ onto our diagonal line, we multiply:
-$$ P \vec{\mathbf{w}} = \begin{bmatrix} u_x & u_y \end{bmatrix} \begin{bmatrix} x \\\\ y \end{bmatrix} = u_x x + u_y y $$
+To project any arbitrary vector $\vec{\mathbf{w}} = \begin{bmatrix} x \\ y \end{bmatrix}$ onto our diagonal line, we multiply:
+$$ P \vec{\mathbf{w}} = \begin{bmatrix} u_x & u_y \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = u_x x + u_y y $$
 
 But this is precisely the numerical dot product $\hat{\mathbf{u}} \cdot \vec{\mathbf{w}}$! 
+
 * **For Unit Vectors:** The dot product $\hat{\mathbf{u}} \cdot \vec{\mathbf{w}}$ is geometrically equivalent to projecting $\vec{\mathbf{w}}$ onto the line of $\hat{\mathbf{u}}$.
 * **For Non-Unit Vectors:** If we scale $\hat{\mathbf{u}}$ by a factor of $c$ to get a vector $\vec{\mathbf{v}} = c\hat{\mathbf{u}}$, we multiply all entries of the transformation matrix by $c$. Geometrically, this means we project onto the line and then scale the result by the length of $\vec{\mathbf{v}}$ ($c$).
 
@@ -158,11 +192,13 @@ This surprising correspondence is a prime example of **Mathematical Duality**.
 > **Duality** refers to a natural-but-surprising relationship between two different kinds of mathematical objects.
 
 In this context:
+
 * **The Dual of a Vector:** Is the linear transformation (1D projection) it encodes.
 * **The Dual of a 1D Linear Transformation:** Is the unique vector in that space that performs the transformation via a dot product.
 
 #### Why This Shift in Perspective is a Superpower:
-Numerically, going back and forth between a vertical column vector $\begin{bmatrix} x \\\\ y \end{bmatrix}$ and a flat row vector $\begin{bmatrix} x & y \end{bmatrix}$ seems trivial. But geometrically, it means **we can understand a vector as the physical embodiment of a transformation**.
+
+Numerically, going back and forth between a vertical column vector $\begin{bmatrix} x \\ y \end{bmatrix}$ and a flat row vector $\begin{bmatrix} x & y \end{bmatrix}$ seems trivial. But geometrically, it means **we can understand a vector as the physical embodiment of a transformation**.
 
 Instead of trying to visualize space warping and collapsing onto a number line, we can represent that entire dynamic transformation as a single, static **arrow** (such as the gradient vector in multivariable calculus). The arrow is a conceptual shorthand for a spatial process.
 
@@ -170,7 +206,7 @@ Instead of trying to visualize space warping and collapsing onto a number line, 
 
 ### 6. Check Your Understanding
 
-**Q1: If vector $\vec{\mathbf{v}} = \begin{bmatrix} 3 \\\\ 4 \end{bmatrix}$ and vector $\vec{\mathbf{w}} = \begin{bmatrix} -4 \\\\ 3 \end{bmatrix}$, what is their dot product, and what does this tell you about their geometric relationship?**
+**Q1: If vector $\vec{\mathbf{v}} = \begin{bmatrix} 3 \\ 4 \end{bmatrix}$ and vector $\vec{\mathbf{w}} = \begin{bmatrix} -4 \\ 3 \end{bmatrix}$, what is their dot product, and what does this tell you about their geometric relationship?**
 <details>
 <summary><b>Reveal Answer & Step-by-Step Derivation</b></summary>
 
@@ -189,7 +225,7 @@ Instead of trying to visualize space warping and collapsing onto a number line, 
 The transformation is represented by the $1 \times 2$ matrix:
 $$ L = \begin{bmatrix} -2 & 5 \end{bmatrix} $$
 The unique dual vector $\vec{\mathbf{v}}$ is simply this matrix tilted vertically back into column space:
-$$ \vec{\mathbf{v}} = \begin{bmatrix} -2 \\\\ 5 \end{bmatrix} $$
+$$ \vec{\mathbf{v}} = \begin{bmatrix} -2 \\ 5 \end{bmatrix} $$
 Applying $L$ to any vector is computationally identical to taking the dot product with $\vec{\mathbf{v}}$.
 </details>
 

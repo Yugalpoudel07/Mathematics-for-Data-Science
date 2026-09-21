@@ -3,6 +3,7 @@
 ---
 
 # Chapter 08: Nonsquare Matrices as Transformations Between Dimensions
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -45,6 +46,7 @@ A transformation from **2D to 3D** takes a flat sheet of paper (2D plane) and ma
 *   **The Matrix Size:** It has **3 rows** and **2 columns**, making it a **$3 \times 2$ matrix**.
 
 #### Geometric Intuition & Column Space
+
 *   **Unconnected Spaces:** It is important to emphasize that 2D input vectors are a completely different animal from 3D output vectors. They live in separate, unconnected spaces.
 *   **The Column Space:** The set of all possible outputs of this matrix (its column space) is the **span of its columns**. Since we are scaling and adding two 3D vectors that are not pointing in the same direction, their span is a **2D plane** slicing through the origin of 3D space.
 *   **Rank:** Because the column space is a 2D plane, the rank of the matrix is **2**. This is a **full-rank** matrix because the output dimension ($2$) matches the input dimension ($2$).
@@ -78,6 +80,7 @@ A transformation from **3D to 2D** takes a 3D room and collapses it down onto a 
 *   **The Matrix Size:** It has **2 rows** and **3 columns**, making it a **$2 \times 3$ matrix**.
 
 #### Geometric Intuition
+
 *   Since we are starting with 3 dimensions and squishing them into 2, we are guaranteed to lose information.
 *   The column space (all possible outputs) is the span of these three 2D vectors. If the vectors are non-zero and don't all align, they will span the entire 2D plane, giving this transformation a **rank of 2**.
 *   **Not Full Rank:** Although the output spans the entire 2D target space, the matrix itself is **not full rank** relative to its input dimension ($3$). This means there must be a non-trivial **null space** (a line of vectors in 3D that all get flattened onto the 2D origin).
@@ -97,12 +100,13 @@ A transformation from **2D to 1D** takes a 2D plane and squishes every vector do
 *   **The Matrix Size:** It has **1 row** and **2 columns**, making it a **$1 \times 2$ matrix**.
 
 #### Visualizing Linearity on a Number Line
+
 *   How do we visualize "lines remaining lines" when there are no grids in 1D?
 *   **The Spacing Rule:** A transformation to 1D is linear if a line of **evenly spaced dots** in 2D remains **evenly spaced** once mapped onto the 1D number line.
 
 ```text
   INPUT (2D Grid Dots)                 OUTPUT (1D Number Line)
-       *     *     *                   
+       *     *     *
        *     *     *      ------*--*--*--*--*--*------>
        *     *     *             -2 -1  0  1  2  3
   (Evenly spaced dots)               (Still evenly spaced)
@@ -132,6 +136,7 @@ A transformation from **2D to 1D** takes a 2D plane and squishes every vector do
 To find where $\vec{\mathbf{v}}$ lands, we take a linear combination of the matrix's columns, using the components of $\vec{\mathbf{v}}$ as scalars:
 $$ B\vec{\mathbf{v}} = 2\begin{bmatrix} 1 \\ 0 \end{bmatrix} + 1\begin{bmatrix} -2 \\ 4 \end{bmatrix} + 3\begin{bmatrix} 3 \\ -1 \end{bmatrix} $$
 Let's calculate each component:
+
 *   **Top Component:** $(2 \cdot 1) + (1 \cdot -2) + (3 \cdot 3) = 2 - 2 + 9 = 9$
 *   **Bottom Component:** $(2 \cdot 0) + (1 \cdot 4) + (3 \cdot -1) = 0 + 4 - 3 = 1$
 

@@ -3,6 +3,7 @@
 ---
 
 # Chapter 16: Abstract Vector Spaces
+
 **Essence of Linear Algebra — 3Blue1Brown**
 
 > [!TIP]
@@ -12,7 +13,9 @@
 ---
 
 ### 1. What Are Vectors, Really?
+
 Throughout this series, we have moved between two primary viewpoints:
+
 1. **The Physics View:** Vectors are arrows pointing in space with magnitude and direction.
 2. **The Computer Science View:** Vectors are ordered lists of numbers (e.g., feature arrays).
 
@@ -23,21 +26,27 @@ This raises the fundamental question: **Is a vector the coordinate list, the arr
 ---
 
 ### 2. Functions as Vectors
+
 To see how general vectors can be, consider **functions**. Functions behave just like vectors because they satisfy the two fundamental operations:
 
 #### A. Function Addition
+
 Adding two functions $f$ and $g$ creates a new function $(f+g)$:
 $$ (f + g)(x) = f(x) + g(x) $$
+
 * **Analogy:** This is completely analogous to adding vectors coordinate-by-coordinate, except that a function has **infinitely many coordinates** (one for every real number $x$).
 
 #### B. Scalar Multiplication
+
 Scaling a function $f$ by a number $c$ scales all of its outputs:
 $$ (c \cdot f)(x) = c \cdot f(x) $$
+
 * **Analogy:** Just like multiplying a 2D vector $\begin{bmatrix}x \\ y\end{bmatrix}$ by $2$ doubles every coordinate $\begin{bmatrix}2x \\ 2y\end{bmatrix}$, scaling a function doubles its output at every single point $x$.
 
 ---
 
 ### 3. The True Definition of Linearity
+
 In Chapter 3, we defined a linear transformation visually: *grid lines stay parallel and evenly spaced, and the origin remains fixed*. But for functions or abstract spaces, grid lines aren't visible. 
 
 The formal, universal definition of a **linear transformation (or operator)** $L$ relies on preserving two algebraic rules for any vectors $\vec{\mathbf{v}}, \vec{\mathbf{w}}$ and scalar $c$:
@@ -50,12 +59,14 @@ The formal, universal definition of a **linear transformation (or operator)** $L
 ---
 
 ### 4. The Derivative as a Linear Transformation
+
 Calculus provides a classic example of a linear operator on functions: **the derivative operator** $\frac{d}{dx}$.
 
 * **Additivity:** $\frac{d}{dx}(f(x) + g(x)) = \frac{d}{dx}f(x) + \frac{d}{dx}g(x)$
 * **Scaling:** $\frac{d}{dx}(c \cdot f(x)) = c \cdot \frac{d}{dx}f(x)$
 
 #### Representing the Derivative as a Matrix
+
 If we restrict our function space to **polynomials**, we can pick a natural basis:
 $$ b_0(x) = 1, \quad b_1(x) = x, \quad b_2(x) = x^2, \quad b_3(x) = x^3, \quad \dots $$
 
@@ -63,6 +74,7 @@ Any polynomial, such as $P(x) = 5 + 4x + 5x^2 + x^3$, can be written as a coordi
 $$ \vec{\mathbf{p}} = \begin{bmatrix} 5 \\ 4 \\ 5 \\ 1 \\ 0 \\ \vdots \end{bmatrix} $$
 
 Taking the derivative transforms this vector:
+
 * $\frac{d}{dx}(1) = 0$
 * $\frac{d}{dx}(x) = 1$
 * $\frac{d}{dx}(x^2) = 2x$
@@ -80,6 +92,7 @@ $$ \begin{bmatrix} 0 & 1 & 0 & 0 & \dots \\ 0 & 0 & 2 & 0 & \dots \\ 0 & 0 & 0 &
 ---
 
 ### 5. Abstract Vector Spaces & Axioms
+
 A **vector space** is any collection of objects where addition and scalar multiplication are defined and satisfy **8 fundamental rules (Axioms)**:
 
 | # | Axiom Name | Requirement for all vectors $\vec{\mathbf{u}}, \vec{\mathbf{v}}, \vec{\mathbf{w}}$ and scalars $a, b$ |
@@ -94,12 +107,15 @@ A **vector space** is any collection of objects where addition and scalar multip
 | 8 | **Distributivity over Scalar Addition** | $(a + b)\vec{\mathbf{v}} = a\vec{\mathbf{v}} + b\vec{\mathbf{v}}$ |
 
 #### The "Interface" Analogy
+
 These 8 axioms act like a **software interface** or contract. Mathematicians prove theorems using *only* these 8 axioms. If you create a new mathematical object (like audio signals or quantum wavefunctions) and verify that it satisfies these 8 rules, **you automatically get access to all of linear algebra**—eigenvalues, projections, transformations, and basis changes—for free!
 
 ---
 
 ### 6. Summary of the Series
+
 Linear algebra is powerful because it provides a unified language for manipulation:
+
 * **Geometry** gives us visual intuition (arrows, grids, rotations).
 * **Numerics** gives us computational tools (matrices, arrays, algorithms).
 * **Abstraction** connects them all, allowing us to solve complex real-world problems in physics, machine learning, signal processing, and computer science using a single framework.
@@ -118,6 +134,7 @@ Because functions can be added together $((f+g)(x) = f(x)+g(x))$ and scaled by n
 <details>
 <summary><b>Reveal Answer & Proof</b></summary>
 <b>No.</b> It fails both conditions:
+
 1. <b>Additivity fails:</b> $T(f + g) = (f(x) + g(x)) + 1$, but $T(f) + T(g) = (f(x) + 1) + (g(x) + 1) = f(x) + g(x) + 2$. Since $f(x)+g(x)+1 \neq f(x)+g(x)+2$, it is not additive.
 2. <b>Homogeneity fails:</b> $T(c\cdot f) = c\cdot f(x) + 1$, whereas $c \cdot T(f) = c(f(x) + 1) = c\cdot f(x) + c$.
 3. <b>Origin check:</b> The zero function $f(x) = 0$ is mapped to $T(0) = 1$, not the zero function $0$.
