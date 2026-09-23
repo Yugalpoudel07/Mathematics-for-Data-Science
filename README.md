@@ -29,7 +29,7 @@ Modern machine learning libraries (like PyTorch, Scikit-Learn, and TensorFlow) m
 | **Khan Academy — Linear Algebra** | Sal Khan | Vector spaces, formal proofs, matrix row operations, null space | ⏳ Upcoming | Planned |
 | **Khan Academy — Multivariable Calculus** | Khan Academy | Partial derivatives, gradients, Jacobians, Hessians, directional derivatives | ⏳ Upcoming | Planned |
 | **Khan Academy — Statistics & Probability** | Khan Academy | Distributions, Bayes theorem, expected value, hypothesis testing | ⏳ Upcoming | Planned |
-| **StatQuest with Josh Starmer** | Josh Starmer | Clear algorithmic intuitions for PCA, trees, regressions, and neural nets | ⏳ Upcoming | Planned |
+| **[StatQuest with Josh Starmer](StatQuest%20with%20Josh%20Starmer/README.md)** | Josh Starmer | Probability, distributions, CLT, confidence intervals, bootstrapping, maximum likelihood | 🔄 **In Progress** | 23 topic notes |
 
 ---
 
@@ -190,7 +190,11 @@ Mathematics-for-Data-Science/
 ├── Khan Academy - Linear Algebra/            # [Upcoming]
 ├── Khan Academy - Multivariable Calculus/    # [Upcoming]
 ├── Khan Academy - Statistics and Probability/# [Upcoming]
-├── StatQuest with Josh Starmer/              # [Upcoming]
+├── StatQuest with Josh Starmer/              # [In Progress: 23 topic notes]
+│   ├── README.md                             # Topic index with every video link
+│   ├── 01-probability-distributions.md       # Topic 01
+│   ├── ...                                   # Topics 02 - 22
+│   └── 23-mle-exponential-distribution.md    # Topic 23
 ├── LICENSE                                   # MIT License
 └── README.md                                 # Main repository index (You are here)
 ```
