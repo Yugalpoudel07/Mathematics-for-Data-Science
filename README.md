@@ -31,6 +31,7 @@ Modern machine learning libraries (like PyTorch, Scikit-Learn, and TensorFlow) m
 | **Khan Academy — Multivariable Calculus** | Khan Academy | Partial derivatives, gradients, Jacobians, Hessians, directional derivatives | ⏳ Upcoming | Planned |
 | **Khan Academy — Statistics & Probability** | Khan Academy | Distributions, Bayes theorem, expected value, hypothesis testing | ⏳ Upcoming | Planned |
 | **[StatQuest with Josh Starmer](StatQuest%20with%20Josh%20Starmer/README.md)** | Josh Starmer | Probability, distributions, CLT, confidence intervals, bootstrapping, maximum likelihood | ✅ **Completed** | **23 / 23 (100%)** |
+| **[Month 1 — Build Tasks](Month%201%20-%20Build%20Tasks/README.md)** | Roadmap "What you build" (Weeks 1–4) | From-scratch NumPy code + tested notebooks: matmul, projection, gradient checker, gradient descent, distributions, CLT, Monty Hall, naive Bayes, bootstrap, CI coverage | ✅ **Completed** | **10 / 10 tasks** |
 
 ---
 
@@ -257,6 +258,11 @@ Mathematics-for-Data-Science/
 │   ├── 01-probability-distributions.md       # Topic 01
 │   ├── ...                                   # Topics 02 - 22
 │   └── 23-mle-exponential-distribution.md    # Topic 23
+├── Month 1 - Build Tasks/                    # [Completed: 10/10 roadmap build tasks]
+│   ├── README.md                             # Task map, results, how to run
+│   ├── mathkit/                              # From-scratch implementations (NumPy)
+│   ├── tests/                                # 36 tests vs NumPy / SciPy / scikit-learn
+│   └── Week 1 … Week 4/                      # One notebook per task + figures
 ├── LICENSE                                   # MIT License
 └── README.md                                 # Main repository index (You are here)
 ```
