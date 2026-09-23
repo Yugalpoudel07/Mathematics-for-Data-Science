@@ -6,9 +6,9 @@
 
 ### *Building Genuine Statistical Intuition for Data Science & Machine Learning*
 
-[![Status: In Progress](https://img.shields.io/badge/Status-In_Progress-orange?style=flat-square)](#-topic-directory--syllabus)
+[![Status: Completed](https://img.shields.io/badge/Status-100%25_Completed-brightgreen?style=flat-square)](#-topic-directory--syllabus)
 [![Channel](https://img.shields.io/badge/StatQuest-Josh_Starmer-red?style=flat-square&logo=youtube)](https://www.youtube.com/@statquest)
-[![Topics](https://img.shields.io/badge/Topics-23%20Documented-blue?style=flat-square)](#-topic-directory--syllabus)
+[![Topics](https://img.shields.io/badge/Topics-23%20of%2023-blue?style=flat-square)](#-topic-directory--syllabus)
 [![Focus](https://img.shields.io/badge/Focus-Statistical_Intuition-purple?style=flat-square)](#)
 
 > [!NOTE]
@@ -21,7 +21,7 @@
 
 ## 🗺️ Topic Directory & Syllabus
 
-23 topics are documented so far, formatted and cross-linked, each with a **Core Intuition** callout, worked formulas, an ASCII diagram, and a **Connection to Machine Learning & Data Science** angle. Click any title to jump straight in:
+All 23 topics are fully completed, formatted, and cross-linked, each with a **Core Intuition** callout, worked formulas, an ASCII diagram, and a **Connection to Machine Learning & Data Science** angle. Click any title to jump straight in:
 
 | # | Topic Title | Core Statistical Idea | Machine Learning & Data Science Application |
 | :-: | :--- | :--- | :--- |

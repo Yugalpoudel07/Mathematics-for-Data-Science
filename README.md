@@ -2,10 +2,10 @@
 
 A structured, rigorous, and visually intuitive journey through the core mathematical pillars underpinning modern Data Science, Machine Learning, and Deep Learning engineering.
 
-[![Completed Modules](https://img.shields.io/badge/Completed_Modules-2%20of%206-brightgreen?style=flat-square)](#-learning-roadmap--curriculum-status)
+[![Completed Modules](https://img.shields.io/badge/Completed_Modules-3%20of%206-brightgreen?style=flat-square)](#-learning-roadmap--curriculum-status)
 [![Essence of Linear Algebra](https://img.shields.io/badge/3Blue1Brown_Linear_Algebra-16%20of%2016%20(100%25)-blue?style=flat-square)](3Blue1Brown%20-%20Essence%20of%20Linear%20Algebra/README.md)
 [![Essence of Calculus](https://img.shields.io/badge/3Blue1Brown_Calculus-12%20of%2012%20(100%25)-blue?style=flat-square)](3Blue1Brown%20-%20Essence%20of%20Calculus/README.md)
-[![StatQuest](https://img.shields.io/badge/StatQuest-23%20Topics%20(In%20Progress)-orange?style=flat-square)](StatQuest%20with%20Josh%20Starmer/README.md)
+[![StatQuest](https://img.shields.io/badge/StatQuest-23%20of%2023%20(100%25)-blue?style=flat-square)](StatQuest%20with%20Josh%20Starmer/README.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](LICENSE)
 [![Focus](https://img.shields.io/badge/Focus-Theory%20%2B%20Geometric%20Intuition%20%2B%20ML-purple?style=flat-square)](#)
 
@@ -30,7 +30,7 @@ Modern machine learning libraries (like PyTorch, Scikit-Learn, and TensorFlow) m
 | **Khan Academy — Linear Algebra** | Sal Khan | Vector spaces, formal proofs, matrix row operations, null space | ⏳ Upcoming | Planned |
 | **Khan Academy — Multivariable Calculus** | Khan Academy | Partial derivatives, gradients, Jacobians, Hessians, directional derivatives | ⏳ Upcoming | Planned |
 | **Khan Academy — Statistics & Probability** | Khan Academy | Distributions, Bayes theorem, expected value, hypothesis testing | ⏳ Upcoming | Planned |
-| **[StatQuest with Josh Starmer](StatQuest%20with%20Josh%20Starmer/README.md)** | Josh Starmer | Probability, distributions, CLT, confidence intervals, bootstrapping, maximum likelihood | 🔄 **In Progress** | 23 topic notes |
+| **[StatQuest with Josh Starmer](StatQuest%20with%20Josh%20Starmer/README.md)** | Josh Starmer | Probability, distributions, CLT, confidence intervals, bootstrapping, maximum likelihood | ✅ **Completed** | **23 / 23 (100%)** |
 
 ---
 
@@ -113,15 +113,15 @@ The 12 chapters are chronologically numbered and structured into four major them
 
 ---
 
-## 🌟 Spotlight: StatQuest with Josh Starmer (In Progress)
+## 🌟 Spotlight: StatQuest with Josh Starmer (Completed)
 
 > [!TIP]
-> **23 Topics Documented So Far:** Each note carries a **Core Intuition** callout, worked formulas, an ASCII diagram, and a dedicated **Connection to Machine Learning & Data Science** angle — the same treatment as the completed modules above.  
+> **Complete Notes Available:** All 23 topics are fully completed, formatted, and cross-linked, each carrying a **Core Intuition** callout, worked formulas, an ASCII diagram, and a dedicated **Connection to Machine Learning & Data Science** angle — the same treatment as the other completed modules above.  
 > 👉 **[Explore the StatQuest Module Directory](StatQuest%20with%20Josh%20Starmer/README.md)**
 
 ### 📚 Topic Breakdown
 
-The 23 topics build progressively across four themes, from "what is randomness" to "how do I fit a model to it":
+All 23 topics are chronologically numbered and build progressively across four themes, from "what is randomness" to "how do I fit a model to it":
 
 #### Part I: Foundations of Probability
 
@@ -252,7 +252,7 @@ Mathematics-for-Data-Science/
 ├── Khan Academy - Linear Algebra/            # [Upcoming]
 ├── Khan Academy - Multivariable Calculus/    # [Upcoming]
 ├── Khan Academy - Statistics and Probability/# [Upcoming]
-├── StatQuest with Josh Starmer/              # [In Progress: 23 topic notes]
+├── StatQuest with Josh Starmer/              # [Completed: 23/23 Topics]
 │   ├── README.md                             # Topic index, ML concepts & syllabus
 │   ├── 01-probability-distributions.md       # Topic 01
 │   ├── ...                                   # Topics 02 - 22
